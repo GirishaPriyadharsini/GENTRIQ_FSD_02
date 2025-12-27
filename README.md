@@ -79,8 +79,6 @@ This project demonstrates practical implementation of **authentication, authoriz
 
 ### Tools
 
-* Git & GitHub
-* Postman
 * phpMyAdmin
 * VS Code
 
@@ -135,8 +133,12 @@ The complete SQL schema is included in
 Create a `.env` file in the root directory:
 
 ```env
-JWT_SECRET=your_secret_key
+JWT_SECRET=your-super-secret-jwt-key-change-this-in-production
 PORT=3000
+DB_HOST=localhost
+DB_USER=root
+DB_PASSWORD=
+DB_NAME=finance_dashboard
 ```
 
 ---
