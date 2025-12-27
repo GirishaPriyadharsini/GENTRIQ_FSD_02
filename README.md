@@ -10,7 +10,7 @@ This web application helps users track income and expenses, categorize transacti
 
 ### Login Page
 
-![Login Page](screenshots/login.png)
+![Home Page](screenshots/home.png)
 
 ### Dashboard Page
 
@@ -18,7 +18,11 @@ This web application helps users track income and expenses, categorize transacti
 
 ### Transactions Page
 
-![Transactions Page](screenshots/transactions.png)
+![Transactions Page](screenshots/transaction.png)
+
+### Categories Page
+
+![Categories Page](screenshots/categories.png)
 
 ---
 
