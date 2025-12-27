@@ -8,7 +8,7 @@ This web application helps users track income and expenses, categorize transacti
 
 ## 📸 Screenshots
 
-### Login Page
+### Home Page
 
 ![Home Page](screenshots/home.png)
 
