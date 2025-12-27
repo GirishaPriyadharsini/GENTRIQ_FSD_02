@@ -8,7 +8,7 @@ The **Personal Finance Dashboard** is a full-stack web application designed to h
 
 ---
 
-## 🚀 Features
+## Features
 
 * User registration and login with JWT authentication
 * Add, edit, and delete income & expense transactions
@@ -21,7 +21,7 @@ The **Personal Finance Dashboard** is a full-stack web application designed to h
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 ### Frontend
 
@@ -44,7 +44,7 @@ The **Personal Finance Dashboard** is a full-stack web application designed to h
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 FINANCE-DASHBOARD/
