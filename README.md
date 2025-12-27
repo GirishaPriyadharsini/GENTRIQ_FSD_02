@@ -1,27 +1,69 @@
-# GENTRIQ_FSD_02
 
-Personal Finance Dashboard (Task 2)
+Personal Finance Dashboard
 
-## 📌 Project Overview
-
-The **Personal Finance Dashboard** is a full-stack web application designed to help users manage their personal finances efficiently. It allows users to track income and expenses, categorize transactions, and visualize financial data through interactive charts. The application ensures secure data storage and user authentication.
+A full-stack **Personal Finance Dashboard** developed as part of **Task 2**.
+This web application helps users track income and expenses, categorize transactions, and visualize financial data through an interactive dashboard with secure authentication.
 
 ---
 
-## Features
+## 📸 Screenshots
 
-* User registration and login with JWT authentication
-* Add, edit, and delete income & expense transactions
-* Categorize transactions (income & expense categories)
-* Monthly financial overview dashboard
-* Interactive charts using Chart.js
-* Dashboard summary (total income, expenses, balance)
-* Recent transactions list
-* Secure backend with MySQL database
+### Login Page
+
+![Login Page](screenshots/login.png)
+
+### Dashboard Page
+
+![Dashboard Page](screenshots/dashboard.png)
+
+### Transactions Page
+
+![Transactions Page](screenshots/transactions.png)
 
 ---
 
-## Tech Stack
+## 📖 Project Description
+
+The **Personal Finance Dashboard** is a database-driven full-stack web application built using **Node.js, Express.js, MySQL, and JWT authentication**.
+It allows users to manage their personal finances by recording income and expenses, organizing them into categories, and analyzing monthly financial trends through charts.
+
+This project demonstrates practical implementation of **authentication, authorization, REST APIs, database design, and data visualization**.
+
+---
+
+## ✨ Features
+
+### User Module
+
+* User registration and login
+* Secure JWT-based authentication
+* Add income transactions
+* Add expense transactions
+* Categorize income and expenses
+* View recent transactions
+* Edit and delete transactions
+* Filter transactions by date, type, and category
+
+### Dashboard Module
+
+* Total income summary
+* Total expenses summary
+* Current balance calculation
+* Monthly income vs expense chart
+* Category-wise expense chart
+* Monthly and yearly filters
+
+---
+
+## 🛠 Technologies Used
+
+### Backend
+
+* Node.js
+* Express.js
+* MySQL
+* JWT (JSON Web Token)
+* bcryptjs
 
 ### Frontend
 
@@ -31,23 +73,22 @@ The **Personal Finance Dashboard** is a full-stack web application designed to h
 * Chart.js
 * Font Awesome
 
-### Backend
+### Tools
 
-* Node.js
-* Express.js
-* JWT (JSON Web Token) for authentication
-* bcrypt.js for password hashing
-
-### Database
-
-* MySQL
+* Git & GitHub
+* Postman
+* phpMyAdmin
+* VS Code
 
 ---
 
-## Project Structure
+## 📂 Project Structure
 
 ```
 FINANCE-DASHBOARD/
+│
+├── database/
+│   └── finance_dashboard.sql
 │
 ├── public/
 │   ├── index.html
@@ -57,23 +98,51 @@ FINANCE-DASHBOARD/
 │   ├── styles.css
 │   └── dashboard.css
 │
-├── database/
-│   └── finance_dashboard.sql
-│
-├── server.js
 ├── .env
 ├── package.json
+├── package-lock.json
+├── server.js
 └── README.md
 ```
 
 ---
 
-## ⚙️ Installation & Setup
+## 🗄 Database Design
+
+The application uses a **MySQL database** with the following tables:
+
+* `users` – stores user account details
+* `categories` – stores income and expense categories
+* `transactions` – stores all financial transactions
+
+### Database Highlights
+
+* User-specific categories
+* Category-wise expense calculation
+* Monthly aggregation queries for dashboard analytics
+
+The complete SQL schema is included in
+`database/finance_dashboard.sql`.
+
+---
+
+## ⚙️ Environment Variables
+
+Create a `.env` file in the root directory:
+
+```env
+JWT_SECRET=your_secret_key
+PORT=3000
+```
+
+---
+
+## ▶ How to Run the Project
 
 ### 1️⃣ Clone the Repository
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/your-username/finance-dashboard.git
 cd finance-dashboard
 ```
 
@@ -83,29 +152,13 @@ cd finance-dashboard
 npm install
 ```
 
-### 3️⃣ Configure Environment Variables
+### 3️⃣ Setup Database
 
-Create a `.env` file:
+* Open **phpMyAdmin**
+* Create a database named `finance_dashboard`
+* Import `database/finance_dashboard.sql`
 
-```env
-JWT_SECRET=your_secret_key
-```
-
-### 4️⃣ Setup Database
-
-* Import `finance_dashboard.sql` into MySQL
-* Update database credentials in `server.js`
-
-```js
-const db = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    database: 'finance_dashboard'
-});
-```
-
-### 5️⃣ Run the Application
+### 4️⃣ Start the Server
 
 ```bash
 node server.js
@@ -119,39 +172,54 @@ http://localhost:3000
 
 ---
 
-## 📊 Dashboard Functionalities
+## 🔐 Authentication & Security
 
-* **Summary Cards**: Total Income, Total Expenses, Balance
-* **Monthly Overview Chart**: Income vs Expenses
-* **Category-wise Expense Chart**
-* **Transaction Management**: Add, edit, delete
-* **Filters**: Month, year, category, date range
-
----
-
-## 🔐 Security
-
-* Passwords are securely hashed using bcrypt
-* JWT-based authentication for protected routes
-* User-specific data access
+* Passwords are securely hashed using **bcrypt**
+* JWT-based authentication
+* Protected API routes using middleware
+* User-specific data access control
 
 ---
 
-## 🎯 Task Fulfillment
+## 📡 API Overview
 
-✔ Add income
-✔ Add expenses
-✔ Categorize transactions
-✔ Monthly charts overview
-✔ Dashboard summary
-✔ Secure backend data storage
-✔ MySQL database integration
+| Method | Endpoint                          | Description                 |
+| ------ | --------------------------------- | --------------------------- |
+| POST   | `/api/register`                   | User registration           |
+| POST   | `/api/login`                      | User login                  |
+| GET    | `/api/categories`                 | Get user categories         |
+| POST   | `/api/categories`                 | Add new category            |
+| POST   | `/api/transactions`               | Add transaction             |
+| GET    | `/api/transactions`               | View transactions           |
+| PUT    | `/api/transactions/:id`           | Update transaction          |
+| DELETE | `/api/transactions/:id`           | Delete transaction          |
+| GET    | `/api/dashboard/summary`          | Dashboard summary           |
+| GET    | `/api/dashboard/monthly-overview` | Monthly overview chart data |
+| GET    | `/api/user/profile`               | User profile                |
 
 ---
 
-## 🧑‍💻 Author
+## 📚 Learning Outcomes
 
-**Task 2 – Full Stack Development Assignment**
-Personal Finance Dashboard
+* Full-stack web application development
+* RESTful API design
+* JWT authentication & authorization
+* Secure password handling
+* MySQL queries and aggregations
+* Chart-based data visualization
+* Real-world financial data management
+
+---
+
+## 👩‍💻 Developed By
+
+**Girisaa Priyadharsini M**
+Task 2 – Personal Finance Dashboard
+
+---
+
+## 📄 License
+
+This project is developed for **educational and internship purposes only**.
 
 ---
