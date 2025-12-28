@@ -1,39 +1,38 @@
 
-# 🎟️ Online Event Booking System
+Personal Finance Dashboard
 
-A full-stack **Online Event Booking System** developed as part of **Task 3**.
-This web application allows users to browse events, view details, book tickets, manage bookings, and provides an admin panel for managing events and users with secure authentication.
+A full-stack **Personal Finance Dashboard** developed as part of **Task 2**.
+This web application helps users track income and expenses, categorize transactions, and visualize financial data through an interactive dashboard with secure authentication.
 
 ---
 
 ## 📸 Screenshots
 
-### Home Page
+### Homw Page
 
 ![Home Page](screenshots/home.png)
 
-### Events Listing Page
+### Dashboard Page
 
-![Events Page](screenshots/events.png)
+![Dashboard Page](screenshots/dashboard.png)
 
-### User Dashboard
+### Transactions Page
 
-![User Dashboard](screenshots/dashboard.png)
+![Transactions Page](screenshots/transaction.png)
 
-### Admin Panel
+### categorie Page Page
 
-![Admin Panel](screenshots/admin.png)
+![Categorie Page Page](screenshots/categories.png)
+
 
 ---
 
 ## 📖 Project Description
 
-The **Online Event Booking System** is a database-driven full-stack web application built using **Node.js, Express.js, MySQL, and JWT authentication**.
-It enables users to explore upcoming events such as concerts, workshops, conferences, and sports events, book tickets securely, and track their booking history.
+The **Personal Finance Dashboard** is a database-driven full-stack web application built using **Node.js, Express.js, MySQL, and JWT authentication**.
+It allows users to manage their personal finances by recording income and expenses, organizing them into categories, and analyzing monthly financial trends through charts.
 
-The admin panel allows administrators to create, update, and delete events, manage users, and monitor bookings and revenue statistics.
-
-This project demonstrates practical implementation of **authentication, authorization, REST APIs, database transactions, and role-based access control**.
+This project demonstrates practical implementation of **authentication, authorization, REST APIs, database design, and data visualization**.
 
 ---
 
@@ -43,26 +42,21 @@ This project demonstrates practical implementation of **authentication, authoriz
 
 * User registration and login
 * Secure JWT-based authentication
-* Browse upcoming and ongoing events
-* View event details
-* Book tickets for events
-* View booking history
-* Cancel bookings with ticket rollback and refund status
-* User dashboard with booking statistics
+* Add income transactions
+* Add expense transactions
+* Categorize income and expenses
+* View recent transactions
+* Edit and delete transactions
+* Filter transactions by date, type, and category
 
-### Admin Module
+### Dashboard Module
 
-* Secure admin login
-* Create new events
-* Update and delete events
-* Manage users
-* View all bookings
-* Admin dashboard with:
-
-  * Total events
-  * Total users
-  * Total bookings
-  * Revenue statistics
+* Total income summary
+* Total expenses summary
+* Current balance calculation
+* Monthly income vs expense chart
+* Category-wise expense chart
+* Monthly and yearly filters
 
 ---
 
@@ -81,10 +75,13 @@ This project demonstrates practical implementation of **authentication, authoriz
 * HTML5
 * CSS3
 * JavaScript (Vanilla JS)
+* Chart.js
 * Font Awesome
 
 ### Tools
 
+* Git & GitHub
+* Postman
 * phpMyAdmin
 * VS Code
 
@@ -93,55 +90,44 @@ This project demonstrates practical implementation of **authentication, authoriz
 ## 📂 Project Structure
 
 ```
-EVENT-BOOKING-SYSTEM/
+FINANCE-DASHBOARD/
 │
-├── css/
-│   ├── admin.css
-│   ├── eventdetail.css
-│   └── style.css
+├── database/
+│   └── finance_dashboard.sql
 │
-├── js/
-│   ├── app.js         
-│   ├── dashboard.js   
-│   └── event.js        
-│
-├── node_modules/
+├── public/
+│   ├── index.html
+│   ├── login.html
+│   ├── register.html
+│   ├── dashboard.html
+│   ├── styles.css
+│   └── dashboard.css
 │
 ├── .env
-├── admin.html
-├── admin.js
-├── adminlogin.html
-├── dashboard.html
-├── event-details.html
-├── index.html
-├── login.html
-├── register.html
 ├── package.json
 ├── package-lock.json
-├── README.md
-└── server.js
+├── server.js
+└── README.md
 ```
+
 ---
 
 ## 🗄 Database Design
 
 The application uses a **MySQL database** with the following tables:
 
-* `users` – stores user and admin account details
-* `events` – stores event information
-* `event_categories` – stores event categories
-* `bookings` – stores event bookings
-* `payments` – stores payment and transaction details
+* `users` – stores user account details
+* `categories` – stores income and expense categories
+* `transactions` – stores all financial transactions
 
 ### Database Highlights
 
-* Role-based users (admin & normal users)
-* Event-wise ticket availability management
-* Transaction-safe booking and cancellation
-* Revenue calculation queries for admin dashboard
+* User-specific categories
+* Category-wise expense calculation
+* Monthly aggregation queries for dashboard analytics
 
 The complete SQL schema is included in
-`database/event_booking_system.sql`.
+`database/finance_dashboard.sql`.
 
 ---
 
@@ -150,12 +136,8 @@ The complete SQL schema is included in
 Create a `.env` file in the root directory:
 
 ```env
-JWT_SECRET=your-super-secret-jwt-key-change-this-in-production
+JWT_SECRET=your_secret_key
 PORT=3000
-DB_HOST=localhost
-DB_USER=root
-DB_PASSWORD=
-DB_NAME=event_booking_system
 ```
 
 ---
@@ -165,8 +147,8 @@ DB_NAME=event_booking_system
 ### 1️⃣ Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/event-booking-system.git
-cd event-booking-system
+git clone https://github.com/your-username/finance-dashboard.git
+cd finance-dashboard
 ```
 
 ### 2️⃣ Install Dependencies
@@ -178,8 +160,8 @@ npm install
 ### 3️⃣ Setup Database
 
 * Open **phpMyAdmin**
-* Create a database named `event_booking_system`
-* Import `database/event_booking_system.sql`
+* Create a database named `finance_dashboard`
+* Import `database/finance_dashboard.sql`
 
 ### 4️⃣ Start the Server
 
@@ -200,27 +182,25 @@ http://localhost:3000
 * Passwords are securely hashed using **bcrypt**
 * JWT-based authentication
 * Protected API routes using middleware
-* Role-based access control (User & Admin)
-* Secure booking transactions using database locks
+* User-specific data access control
 
 ---
 
 ## 📡 API Overview
 
-| Method | Endpoint                   | Description            |
-| ------ | -------------------------- | ---------------------- |
-| POST   | `/api/register`            | User registration      |
-| POST   | `/api/login`               | User login             |
-| GET    | `/api/events`              | Get all events         |
-| GET    | `/api/events/:id`          | Get event details      |
-| POST   | `/api/bookings`            | Book tickets           |
-| GET    | `/api/user/bookings`       | View user bookings     |
-| PUT    | `/api/bookings/:id/cancel` | Cancel booking         |
-| POST   | `/api/admin/login`         | Admin login            |
-| GET    | `/api/admin/events`        | Admin event management |
-| POST   | `/api/admin/events`        | Create event           |
-| PUT    | `/api/admin/events/:id`    | Update event           |
-| DELETE | `/api/admin/events/:id`    | Delete event           |
+| Method | Endpoint                          | Description                 |
+| ------ | --------------------------------- | --------------------------- |
+| POST   | `/api/register`                   | User registration           |
+| POST   | `/api/login`                      | User login                  |
+| GET    | `/api/categories`                 | Get user categories         |
+| POST   | `/api/categories`                 | Add new category            |
+| POST   | `/api/transactions`               | Add transaction             |
+| GET    | `/api/transactions`               | View transactions           |
+| PUT    | `/api/transactions/:id`           | Update transaction          |
+| DELETE | `/api/transactions/:id`           | Delete transaction          |
+| GET    | `/api/dashboard/summary`          | Dashboard summary           |
+| GET    | `/api/dashboard/monthly-overview` | Monthly overview chart data |
+| GET    | `/api/user/profile`               | User profile                |
 
 ---
 
@@ -230,16 +210,16 @@ http://localhost:3000
 * RESTful API design
 * JWT authentication & authorization
 * Secure password handling
-* Database transactions and locking
-* Role-based access control
-* Real-world event booking logic
+* MySQL queries and aggregations
+* Chart-based data visualization
+* Real-world financial data management
 
 ---
 
 ## 👩‍💻 Developed By
 
 **Girisaa Priyadharsini M**
-Task 3 – Online Event Booking System
+Task 2 – Personal Finance Dashboard
 
 ---
 
