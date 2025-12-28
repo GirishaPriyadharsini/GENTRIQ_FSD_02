@@ -1,5 +1,5 @@
 
-Personal Finance Dashboard
+**#Personal Finance Dashboard**
 
 A full-stack **Personal Finance Dashboard** developed as part of **Task 2**.
 This web application helps users track income and expenses, categorize transactions, and visualize financial data through an interactive dashboard with secure authentication.
@@ -8,7 +8,7 @@ This web application helps users track income and expenses, categorize transacti
 
 ## 📸 Screenshots
 
-### Homw Page
+### Home Page
 
 ![Home Page](screenshots/home.png)
 
