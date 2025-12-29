@@ -148,8 +148,9 @@ PORT=3000
 ### 1️⃣ Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/finance-dashboard.git
-cd finance-dashboard
+git clone https://github.com/GirishaPriyadharsini/GENTRIQ_FSD_02.git
+cd GENTRIQ_FSD_02
+
 ```
 
 ### 2️⃣ Install Dependencies
